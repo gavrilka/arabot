@@ -1,0 +1,4 @@
+git init
+dit add .
+git commit -m "commit name"
+git push origin master
