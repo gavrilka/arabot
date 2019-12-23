@@ -11,7 +11,7 @@ import telebot
 #    weather(message)
 # КОНЕЦ КОДА, КОТОРЫЙ НУЖНО ПЕРЕКОПИРОВАТЬ В ОСНОВНОЙ ФАЙЛ PY
 
-token = '495756900:AAGvm2io0-UCK4nopKkLCuPgLXXMqV3H2Xs'  # УКАЖИТЕ ТОКЕН. Например misc.token
+token = '495756900:AAH8y13cVaP5rgc3b2Bd9AmkmcLY5mr9LFE'  # УКАЖИТЕ ТОКЕН. Например misc.token
 bot = telebot.TeleBot(token)
 thunderstorm = u'\U0001F4A8'  # Code: 200's, 900, 901, 902, 905
 drizzle = u'\U0001F4A7'  # Code: 300's
@@ -53,7 +53,7 @@ def getEmoji(weatherID):
         return defaultemoji   # Default emoji
 def weather(message):
         if message.text =='/weather':
-            bot.send_message(message.chat.id, 'Дорогой *' + message.from_user.first_name + '*! Укажи город, например /weather Moscow', parse_mode='Markdown')
+            bot.send_message(message.chat.id, 'Dear *' + message.from_user.first_name + '*! Select your city, for example /weather Moscow', parse_mode='Markdown')
         else:
             try:
                 text = message.text
@@ -95,11 +95,11 @@ def weather(message):
                         'Скорость ветра - ' + windspeed + ' м.с.')
                 else:  # Not found city
                     bot.send_message(message.chat.id,
-                                     'Братишка *' + message.from_user.first_name + '*, извини, но такого города нет, попробуй другой!',
+                                     'Bro *' + message.from_user.first_name + '*, sorry, there is no such city, try again!',
                                      parse_mode='Markdown')
             except Exception as e:
                 bot.send_message(message.chat.id,
-                                 'Братишка *' + message.from_user.first_name + '*, извини, но такого города нет, попробуй другой!',
+                                 'Bro *' + message.from_user.first_name + '*, sorry, there is no such city, try again!',
                                  parse_mode='Markdown')
     #            bot.send_message(message.chat.id, str(e))
     #            bot.send_message(message.chat.id, sys.exc_info()[0])
@@ -135,7 +135,7 @@ def get_weather(city):
             temp_current) + degree_sign + 'C\n' + 'Max: ' + str(
             temp_max) + degree_sign + 'C - ' + 'Min: ' + str(
             temp_min) + degree_sign + 'C\n' + description_brief + ' - ' + description + emoji + emoji + '\n'
-                                                                                                        'Давление - ' + pressure + ' мм рт. ст.\nВлажность - ' + humidity + '%\n'
-                                                                                                                                                                            'Видимость - ' + visibility + ' метров\n'
-                                                                                                                                                                                                          'Скорость ветра - ' + windspeed + ' м.с.')
+                                                                                                        'Pressure - ' + pressure + ' мм рт. ст.\nHumidity - ' + humidity + '%\n'
+                                                                                                                                                                            'Visibility - ' + visibility + ' meters\n'
+                                                                                                                                                                                                          'Wind speed - ' + windspeed + ' m.s.')
         return weather_message

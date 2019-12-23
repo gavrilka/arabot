@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 import telebot
-token = '495756900:AAGvm2io0-UCK4nopKkLCuPgLXXMqV3H2Xs'  # УКАЖИТЕ ТОКЕН. Например misc.token
+token = '495756900:AAH8y13cVaP5rgc3b2Bd9AmkmcLY5mr9LFE'  # УКАЖИТЕ ТОКЕН. Например misc.token
 bot = telebot.TeleBot(token)
 
 # НАЧАЛО КОДА, КОТОРЫЙ НУЖНО ПЕРЕКОПИРОВАТЬ В ОСНОВНОЙ ФАЙЛ PY
@@ -14,15 +14,15 @@ bot = telebot.TeleBot(token)
 
 def crypt(message):
     if message.text =='/crypt':
-        bot.send_message(message.chat.id, 'Дорогой *' + message.from_user.first_name + '*! Укажи какие криптовалюты, например /crypt btc usd', parse_mode='Markdown')
+        bot.send_message(message.chat.id, 'Dead *' + message.from_user.first_name + '*! Select crypto pair, for example /crypt btc usd', parse_mode='Markdown')
     else:
         try:
             text = message.text
             texts = text.split(' ')
-            bot.send_message(message.chat.id, 'Привет *' + message.from_user.first_name + '*, на бирже cryptonator в данный момент курс ' + '*' + str.upper(texts[1]) + ' *' + 'составляет: ' + '*' + get_crypt(str.upper(texts[1]), str.upper(texts[2])) + '*' + '* ' + str.upper(texts[2]) + '*', parse_mode='Markdown')
+            bot.send_message(message.chat.id, 'Hello *' + message.from_user.first_name + '*, according to cryptonator, current exchange rate of ' + '*' + str.upper(texts[1]) + ' *' + 'is: ' + '*' + get_crypt(str.upper(texts[1]), str.upper(texts[2])) + '*' + '* ' + str.upper(texts[2]) + '*', parse_mode='Markdown')
         except KeyError:
             bot.send_message(message.chat.id,
-                             'Братишка *' + message.from_user.first_name + '*, ты ошибся, таких пар нет, попробуй еще раз!',
+                             'Bro *' + message.from_user.first_name + '*, you are mistaken, there is no such crypto, try again!',
                              parse_mode='Markdown')
         except Exception as detail:
             detail = detail.args
